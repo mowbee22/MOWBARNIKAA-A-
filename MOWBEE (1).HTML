@@ -1,16 +1,10 @@
+<html>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mowbarnikaa A | Mechanical Engineer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<title>Mowbarnikaa A | Portfolio</title>
 
 <style>
 
@@ -18,13 +12,23 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
 background:#0f172a;
 color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+/* PARTICLE CANVAS */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
 }
 
 /* NAVBAR */
@@ -33,18 +37,23 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-background:#020617;
-padding:15px;
 display:flex;
-justify-content:center;
+justify-content:space-between;
+padding:15px 8%;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
 z-index:1000;
 }
 
+nav h2{
+color:#38bdf8;
+}
+
 nav a{
-margin:0 20px;
-color:white;
+margin-left:20px;
 text-decoration:none;
-font-size:15px;
+color:white;
+transition:0.3s;
 }
 
 nav a:hover{
@@ -53,54 +62,73 @@ color:#38bdf8;
 
 /* HERO */
 
-header{
+.hero{
 height:100vh;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
-position:relative;
+padding:20px;
 }
 
-#particles-js{
-position:absolute;
-width:100%;
-height:100%;
-z-index:-1;
-}
-
-header h1{
+.hero h1{
 font-size:55px;
 }
 
-header span{
+.hero span{
 color:#38bdf8;
 }
 
-header p{
-font-size:20px;
-margin-top:10px;
+.hero p{
+margin-top:20px;
+max-width:650px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:12px 28px;
+border-radius:30px;
+background:linear-gradient(45deg,#38bdf8,#0ea5e9);
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 15px #38bdf8;
 }
 
 /* SECTIONS */
 
 section{
-padding:100px 10%;
+padding:90px 10%;
 }
 
-h2{
-font-size:32px;
-margin-bottom:30px;
+.section-title{
+text-align:center;
+font-size:35px;
+margin-bottom:50px;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 /* CARDS */
 
 .card{
-background:#1e293b;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
 padding:25px;
 border-radius:12px;
-margin-bottom:25px;
 transition:0.4s;
 opacity:0;
 transform:translateY(40px);
@@ -112,299 +140,369 @@ transform:translateY(0);
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 20px rgba(56,189,248,0.6);
 }
 
-/* SKILLS */
+/* SKILLS SECTION */
 
-.skill{
-margin-bottom:20px;
+.skills-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
 }
 
-.bar{
-background:#334155;
-height:8px;
-border-radius:10px;
-}
-
-.progress{
-height:8px;
-width:0;
-background:#38bdf8;
-border-radius:10px;
-transition:2s;
-}
-
-/* PROJECTS */
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.project-card{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
+.skill-card{
+text-align:center;
 transition:0.4s;
 }
 
-.project-card:hover{
-transform:scale(1.05);
+.skill-card:hover{
+transform:scale(1.1);
 }
 
-/* BUTTON */
+.progress{
+transform:rotate(-90deg);
+}
 
-button{
-background:#38bdf8;
-border:none;
-padding:12px 20px;
-border-radius:6px;
-cursor:pointer;
+.bg{
+fill:none;
+stroke:#1e293b;
+stroke-width:10;
+}
+
+.meter{
+fill:none;
+stroke:#38bdf8;
+stroke-width:10;
+stroke-linecap:round;
+stroke-dasharray:314;
+stroke-dashoffset:314;
+transition:2s;
+}
+
+.skill-card h3{
 margin-top:15px;
-}
-
-button:hover{
-background:#0ea5e9;
 }
 
 /* FOOTER */
 
 footer{
-text-align:center;
-padding:25px;
 background:#020617;
+padding:40px;
+text-align:center;
 }
 
-/* DARK MODE */
+footer a{
+color:#38bdf8;
+text-decoration:none;
+}
 
-.light{
-background:white;
+/* FLOAT CALL BUTTON */
+
+.call-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#38bdf8;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
 color:black;
+text-decoration:none;
+box-shadow:0 0 15px #38bdf8;
+transition:0.3s;
+}
+
+.call-btn:hover{
+transform:scale(1.2);
 }
 
 </style>
-
 </head>
 
 <body>
 
-<nav>
+<canvas id="particles"></canvas>
 
-<a href="#about">About</a>
+<nav>
+<h2>Mowbarnikaa</h2>
+<div>
 <a href="#education">Education</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-
-<button onclick="toggleMode()">🌙</button>
-
+<a href="#leadership">Leadership</a>
+</div>
 </nav>
 
-<header>
+<!-- HERO -->
 
-<div id="particles-js"></div>
+<div class="hero">
+<div>
 
-<h1>Mowbarnikaa <span id="typing"></span></h1>
+<h1>Hello, I'm <span>Mowbarnikaa A</span></h1>
 
-<p>Mechanical Engineering Student</p>
+<p id="typing"></p>
 
-</header>
-
-<section id="about">
-
-<h2>Profile</h2>
-
-<div class="card">
-
-<p>
-Passionate Mechanical Engineering student with strong interest in robotics, energy systems and innovation. 
-Experienced in leadership and teamwork through NSS and engineering activities.
-</p>
+<a class="btn" href="Mowbarnikaa_Resume.pdf" download>Download Resume</a>
 
 </div>
+</div>
 
-</section>
+<!-- EDUCATION -->
 
 <section id="education">
 
-<h2>Education</h2>
+<h2 class="section-title">Education</h2>
+
+<div class="grid">
 
 <div class="card">
-
 <h3>B.E Mechanical Engineering</h3>
-<p>College of Engineering Guindy – Anna University</p>
+<p>College of Engineering Guindy</p>
+<p>Anna University</p>
 <p>CGPA: 7.68</p>
-
 </div>
 
 <div class="card">
-
-<h3>Higher Secondary</h3>
-<p>Saratha Matric Hr. Sec School</p>
-<p>Percentage: 91%</p>
+<h3>12th Grade</h3>
+<p>Saratha Matric Higher Secondary School</p>
+<p>Score: 91%</p>
+</div>
 
 </div>
 
 </section>
+
+<!-- SKILLS -->
 
 <section id="skills">
 
-<h2>Skills</h2>
+<h2 class="section-title">Skills</h2>
 
-<div class="card">
+<div class="skills-container">
 
-<div class="skill">
-<p>AutoCAD</p>
-<div class="bar"><div class="progress" data-width="80%"></div></div>
+<div class="skill-card">
+<svg class="progress" width="120" height="120">
+<circle cx="60" cy="60" r="50" class="bg"></circle>
+<circle cx="60" cy="60" r="50" class="meter" data-value="75"></circle>
+</svg>
+<h3>AutoCAD</h3>
 </div>
 
-<div class="skill">
-<p>Creo</p>
-<div class="bar"><div class="progress" data-width="60%"></div></div>
+<div class="skill-card">
+<svg class="progress" width="120" height="120">
+<circle cx="60" cy="60" r="50" class="bg"></circle>
+<circle cx="60" cy="60" r="50" class="meter" data-value="65"></circle>
+</svg>
+<h3>Creo</h3>
 </div>
 
-<div class="skill">
-<p>Leadership</p>
-<div class="bar"><div class="progress" data-width="90%"></div></div>
+<div class="skill-card">
+<svg class="progress" width="120" height="120">
+<circle cx="60" cy="60" r="50" class="bg"></circle>
+<circle cx="60" cy="60" r="50" class="meter" data-value="70"></circle>
+</svg>
+<h3>Excel</h3>
+</div>
+
+<div class="skill-card">
+<svg class="progress" width="120" height="120">
+<circle cx="60" cy="60" r="50" class="bg"></circle>
+<circle cx="60" cy="60" r="50" class="meter" data-value="70"></circle>
+</svg>
+<h3>Word</h3>
 </div>
 
 </div>
 
 </section>
+
+<!-- PROJECTS -->
 
 <section id="projects">
 
-<h2>Projects</h2>
+<h2 class="section-title">Projects</h2>
 
-<div class="projects">
-
-<div class="project-card">
-<h3>Autogrip 6R</h3>
-<p>Arduino based 6-axis robotic gripper system.</p>
-</div>
-
-<div class="project-card">
-<h3>Future Project</h3>
-<p>Add your upcoming mechanical projects here.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<h2>Contact</h2>
+<div class="grid">
 
 <div class="card">
+<h3>Motorized Wiping Mop</h3>
+<p>Motor-driven wiping system converting rotary motion into linear cleaning using ornithopter mechanism.</p>
+</div>
 
-<p>📞 6380057019</p>
-<p>📧 mowbee22@gmail.com</p>
-
-<button onclick="alert('Add your resume file in GitHub and link here')">Download Resume</button>
+<div class="card">
+<h3>Autogrip 6R Robotic Gripper</h3>
+<p>Arduino-based robotic gripper with six degrees of freedom and switchable gripping mechanism.</p>
+</div>
 
 </div>
 
 </section>
+
+<!-- LEADERSHIP -->
+
+<section id="leadership">
+
+<h2 class="section-title">Leadership & Achievements</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Leadership</h3>
+<ul>
+<li>Design Head – NSS Unit IX</li>
+<li>Class Representative</li>
+<li>Coordinator – SME</li>
+<li>Organizer – CEG Tech Forum</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Achievements</h3>
+<ul>
+<li>Best Volunteer Award – NSS</li>
+<li>1st Place – Dance Competition</li>
+<li>Badminton Winner</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Languages</h3>
+<ul>
+<li>Tamil</li>
+<li>English</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
 
-<p>© 2026 Mowbarnikaa A | Portfolio</p>
+<h3>Contact</h3>
+
+<p>Email: <a href="mailto:mowbee22@gmail.com">mowbee22@gmail.com</a></p>
+
+<p>Phone: <a href="tel:+916380057019">+91 6380057019</a></p>
+
+<p>© 2026 Mowbarnikaa A</p>
 
 </footer>
 
+<a class="call-btn" href="tel:+916380057019">📞</a>
+
 <script>
 
-/* typing animation */
+/* TYPING EFFECT */
 
-const text=" A";
+const text="Mechanical Engineering student passionate about manufacturing, robotics and engineering innovation.";
 let i=0;
 
 function typing(){
-
 if(i<text.length){
-
 document.getElementById("typing").innerHTML+=text.charAt(i);
-
 i++;
-
-setTimeout(typing,200);
-
+setTimeout(typing,40);
 }
-
 }
 
 typing();
 
-/* scroll animation */
+/* SCROLL REVEAL */
 
 const cards=document.querySelectorAll(".card");
 
 function reveal(){
+const trigger=window.innerHeight*0.85;
 
 cards.forEach(card=>{
-
-const windowHeight=window.innerHeight;
-
-const revealTop=card.getBoundingClientRect().top;
-
-if(revealTop<windowHeight-100){
-
+const top=card.getBoundingClientRect().top;
+if(top<trigger){
 card.classList.add("show");
-
 }
-
 });
-
 }
 
 window.addEventListener("scroll",reveal);
 
-/* skills animation */
+/* SKILL CIRCLE ANIMATION */
+
+function animateSkills(){
+
+const meters=document.querySelectorAll(".meter");
+
+meters.forEach(circle=>{
+
+let value=circle.getAttribute("data-value");
+
+let offset=314-(314*value)/100;
+
+circle.style.strokeDashoffset=offset;
+
+});
+
+}
 
 window.addEventListener("scroll",()=>{
 
-document.querySelectorAll(".progress").forEach(bar=>{
+const section=document.querySelector("#skills");
 
-if(bar.getBoundingClientRect().top<window.innerHeight){
+const position=section.getBoundingClientRect().top;
 
-bar.style.width=bar.dataset.width;
+if(position<window.innerHeight-100){
 
-}
-
-});
-
-});
-
-/* dark mode */
-
-function toggleMode(){
-
-document.body.classList.toggle("light");
-
-}
-
-/* particles */
-
-particlesJS("particles-js",{
-
-particles:{
-
-number:{value:80},
-
-size:{value:3},
-
-move:{speed:2}
+animateSkills();
 
 }
 
 });
+
+/* PARTICLES */
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#38bdf8";
+ctx.fill();
+
+p.y+=0.3;
+if(p.y>canvas.height) p.y=0;
+});
+
+requestAnimationFrame(draw);
+}
+
+draw();
 
 </script>
 
 </body>
-
 </html>
