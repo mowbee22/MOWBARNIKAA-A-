@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mowbarnikaa A | Mechanical Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#020617;
+padding:15px;
+display:flex;
+justify-content:center;
+z-index:1000;
+}
+
+nav a{
+margin:0 20px;
+color:white;
+text-decoration:none;
+font-size:15px;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+
+#particles-js{
+position:absolute;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+header h1{
+font-size:55px;
+}
+
+header span{
+color:#38bdf8;
+}
+
+header p{
+font-size:20px;
+margin-top:10px;
+}
+
+/* SECTIONS */
+
+section{
+padding:100px 10%;
+}
+
+h2{
+font-size:32px;
+margin-bottom:30px;
+}
+
+/* CARDS */
+
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+margin-bottom:25px;
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* SKILLS */
+
+.skill{
+margin-bottom:20px;
+}
+
+.bar{
+background:#334155;
+height:8px;
+border-radius:10px;
+}
+
+.progress{
+height:8px;
+width:0;
+background:#38bdf8;
+border-radius:10px;
+transition:2s;
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.project-card{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+transition:0.4s;
+}
+
+.project-card:hover{
+transform:scale(1.05);
+}
+
+/* BUTTON */
+
+button{
+background:#38bdf8;
+border:none;
+padding:12px 20px;
+border-radius:6px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+background:#0ea5e9;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:25px;
+background:#020617;
+}
+
+/* DARK MODE */
+
+.light{
+background:white;
+color:black;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+
+<button onclick="toggleMode()">🌙</button>
+
+</nav>
+
+<header>
+
+<div id="particles-js"></div>
+
+<h1>Mowbarnikaa <span id="typing"></span></h1>
+
+<p>Mechanical Engineering Student</p>
+
+</header>
+
+<section id="about">
+
+<h2>Profile</h2>
+
+<div class="card">
+
+<p>
+Passionate Mechanical Engineering student with strong interest in robotics, energy systems and innovation. 
+Experienced in leadership and teamwork through NSS and engineering activities.
+</p>
+
+</div>
+
+</section>
+
+<section id="education">
+
+<h2>Education</h2>
+
+<div class="card">
+
+<h3>B.E Mechanical Engineering</h3>
+<p>College of Engineering Guindy – Anna University</p>
+<p>CGPA: 7.68</p>
+
+</div>
+
+<div class="card">
+
+<h3>Higher Secondary</h3>
+<p>Saratha Matric Hr. Sec School</p>
+<p>Percentage: 91%</p>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2>Skills</h2>
+
+<div class="card">
+
+<div class="skill">
+<p>AutoCAD</p>
+<div class="bar"><div class="progress" data-width="80%"></div></div>
+</div>
+
+<div class="skill">
+<p>Creo</p>
+<div class="bar"><div class="progress" data-width="60%"></div></div>
+</div>
+
+<div class="skill">
+<p>Leadership</p>
+<div class="bar"><div class="progress" data-width="90%"></div></div>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project-card">
+<h3>Autogrip 6R</h3>
+<p>Arduino based 6-axis robotic gripper system.</p>
+</div>
+
+<div class="project-card">
+<h3>Future Project</h3>
+<p>Add your upcoming mechanical projects here.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<div class="card">
+
+<p>📞 6380057019</p>
+<p>📧 mowbee22@gmail.com</p>
+
+<button onclick="alert('Add your resume file in GitHub and link here')">Download Resume</button>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Mowbarnikaa A | Portfolio</p>
+
+</footer>
+
+<script>
+
+/* typing animation */
+
+const text=" A";
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(typing,200);
+
+}
+
+}
+
+typing();
+
+/* scroll animation */
+
+const cards=document.querySelectorAll(".card");
+
+function reveal(){
+
+cards.forEach(card=>{
+
+const windowHeight=window.innerHeight;
+
+const revealTop=card.getBoundingClientRect().top;
+
+if(revealTop<windowHeight-100){
+
+card.classList.add("show");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",reveal);
+
+/* skills animation */
+
+window.addEventListener("scroll",()=>{
+
+document.querySelectorAll(".progress").forEach(bar=>{
+
+if(bar.getBoundingClientRect().top<window.innerHeight){
+
+bar.style.width=bar.dataset.width;
+
+}
+
+});
+
+});
+
+/* dark mode */
+
+function toggleMode(){
+
+document.body.classList.toggle("light");
+
+}
+
+/* particles */
+
+particlesJS("particles-js",{
+
+particles:{
+
+number:{value:80},
+
+size:{value:3},
+
+move:{speed:2}
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
